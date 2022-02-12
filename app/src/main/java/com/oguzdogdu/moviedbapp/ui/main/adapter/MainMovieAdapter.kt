@@ -1,4 +1,4 @@
-package com.oguzdogdu.moviedbapp.ui.main
+package com.oguzdogdu.moviedbapp.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,8 +17,20 @@ class MainMovieAdapter : RecyclerView.Adapter<MainMovieAdapter.MainViewHolder>()
                 imgMovie.load(movie.posterUrl)
                 tvMovieTitle.text = movie.title
                 tvDescription.text = movie.overview
+                tvRealease.text = movie.realease
+            }
+            binding.root.setOnClickListener {
+                onItemClickListener?.let {
+                    it(movie)
+                }
             }
         }
+    }
+
+    private var onItemClickListener: ((NetworkMovie) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (NetworkMovie) -> Unit) {
+        onItemClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {

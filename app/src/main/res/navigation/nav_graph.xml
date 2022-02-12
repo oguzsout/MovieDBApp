@@ -21,5 +21,9 @@
         <action
             android:id="@+id/action_detailMovieFragment_to_mainMovieFragment"
             app:destination="@id/mainMovieFragment" />
+        <argument
+            android:name="movieId"
+            app:argType="com.oguzdogdu.moviedbapp.domain.model.NetworkMovie"
+            app:nullable="true" />
     </fragment>
 </navigation>
