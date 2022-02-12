@@ -11,7 +11,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class UpComingUseCase @Inject constructor(private val repo: MovieRepoInterface) {
+class NowPlayingUseCase @Inject constructor(private val repo: MovieRepoInterface) {
     operator fun invoke(): Flow<Result<List<NetworkMovie>>> = flow {
         try {
             emit(Result.Loading())
