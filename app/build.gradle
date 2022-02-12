@@ -50,6 +50,9 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:${Testing.junitExt}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${Testing.espresso}"
 
+    //paging
+    implementation "androidx.paging:paging-runtime-ktx:${AndroidX.paging}"
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:${Network.retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${Network.gson}"
@@ -68,7 +71,13 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:${AndroidX.navigation}"
 
     //Coil
-    implementation "io.coil-kt:coil:${CoilKt.coil}"
+    implementation "io.coil-kt:coil:${Image.coil}"
+
+    //Slider
+    implementation "com.github.denzcoskun:ImageSlideshow:${Image.slider}"
+
+    //Fresco
+    implementation "com.facebook.fresco:fresco:${Image.fresco}"
 
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:${Google.hilt}"

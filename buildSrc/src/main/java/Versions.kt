@@ -47,6 +47,8 @@ object Testing {
     const val junit = "4.13.2"
 }
 
-object CoilKt {
+object Image {
     const val coil = "1.4.0"
+    const val slider = "0.1.0"
+    const val fresco = "2.5.0"
 }
