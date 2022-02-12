@@ -1,4 +1,4 @@
-package com.oguzdogdu.moviedbapp.data
+package com.oguzdogdu.moviedbapp.data.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -25,6 +25,10 @@ data class Movie(
     val posterPath: String,
     @SerializedName("title")
     val title: String,
+    @SerializedName("release_date")
+    val realease: String,
     @SerializedName("vote_average")
-    val voteAverage: Double
+    val voteAverage: Double,
+    @SerializedName("backdrop_path")
+    val backdrop: String
 ) : Parcelable

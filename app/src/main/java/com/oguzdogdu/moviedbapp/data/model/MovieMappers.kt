@@ -1,4 +1,4 @@
-package com.oguzdogdu.moviedbapp.data
+package com.oguzdogdu.moviedbapp.data.model
 
 import com.oguzdogdu.moviedbapp.domain.model.Movies
 import com.oguzdogdu.moviedbapp.domain.model.NetworkMovie
@@ -12,5 +12,7 @@ fun Movie.asMovie() = NetworkMovie(
     title = title,
     overview = overview,
     posterPath = posterPath,
+    realease = realease,
     voteAverage = voteAverage,
+    backdrop = backdrop
 )
