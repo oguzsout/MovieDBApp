@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id "androidx.navigation.safeargs.kotlin"
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -8,13 +12,15 @@ android {
 
     defaultConfig {
         applicationId "com.oguzdogdu.moviedbapp"
-        minSdk 21
-        targetSdk 32
+        minSdk Sdk.min
+        targetSdk Sdk.target
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildFeatures.viewBinding = true
 
     buildTypes {
         release {
@@ -33,11 +39,39 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Kotlin.gradle}"
+
+    implementation "androidx.core:core-ktx:${AndroidX.core}"
+    implementation "androidx.appcompat:appcompat:${AndroidX.appcompat}"
+    implementation "com.google.android.material:material:${Google.material}"
+    implementation "androidx.constraintlayout:constraintlayout:${AndroidX.constraintLayout}"
+    implementation "androidx.legacy:legacy-support-v4:${AndroidX.legacySupport}"
+    testImplementation "junit:junit:${Testing.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${Testing.junitExt}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${Testing.espresso}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${Network.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${Network.gson}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${Network.okhttpLogging}"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Kotlin.coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Kotlin.coroutines}"
+
+    // Coroutine Lifecycle Scopes
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${Kotlin.coroutineScope}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${Kotlin.coroutineScope}"
+
+    // Navigation Components
+    implementation "androidx.navigation:navigation-fragment-ktx:${AndroidX.navigation}"
+    implementation "androidx.navigation:navigation-ui-ktx:${AndroidX.navigation}"
+
+    //Coil
+    implementation "io.coil-kt:coil:${CoilKt.coil}"
+
+    //Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:${Google.hilt}"
+    kapt "com.google.dagger:hilt-android-compiler:${Google.hilt}"
+    kapt "androidx.hilt:hilt-compiler:${Google.hiltCompiler}"
 }
