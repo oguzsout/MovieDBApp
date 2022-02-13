@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.snackbar.Snackbar
@@ -54,15 +55,7 @@ class MainMovieFragment :
                         Snackbar.make(requireView(), "Check Connectivity", Snackbar.LENGTH_LONG).show()
                     }
                     nowplaying.data?.isNotEmpty() == true -> {
-                        imageList.add(SlideModel(nowplaying.data[0].slider,
-                            nowplaying.data[0].title))
-                        imageList.add(SlideModel(nowplaying.data[1].slider,
-                            nowplaying.data[1].title))
-                        imageList.add(SlideModel(nowplaying.data[2].slider,
-                            nowplaying.data[2].title))
-                        imageList.add(SlideModel(nowplaying.data[3].slider,
-                            nowplaying.data[3].title))
-                        binding.imageSlider.setImageList(imageList)
+                        listForImageSlider(nowplaying)
                     }
                 }
             }
@@ -121,6 +114,19 @@ class MainMovieFragment :
             observeUpComingData()
             binding.swipe.isRefreshing = false
         }
+    }
+
+    private fun listForImageSlider(nowPlaying: MainState) {
+
+        imageList.add(SlideModel(nowPlaying.data?.get(0)?.slider,
+            nowPlaying.data?.get(0)?.title, ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(nowPlaying.data?.get(1)?.slider,
+            nowPlaying.data?.get(1)?.title, ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(nowPlaying.data?.get(2)?.slider,
+            nowPlaying.data?.get(2)?.title, ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(nowPlaying.data?.get(3)?.slider,
+            nowPlaying.data?.get(3)?.title, ScaleTypes.CENTER_CROP))
+        binding.imageSlider.setImageList(imageList)
     }
 
     private fun hideProgressBar() {
