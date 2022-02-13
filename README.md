@@ -29,3 +29,4 @@ Architecture principles follow Google recommended [Guide to app architecture](ht
 - Hilt For DI
 - Coil for show image
 - Gradle Kotlin DSL(buildSrc) for dependency management
+- (https://user-images.githubusercontent.com/73955284/153750381-03ab691f-8590-41a4-85de-0d20f02ffaf5.png)
