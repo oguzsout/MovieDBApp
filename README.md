@@ -25,7 +25,7 @@ Architecture principles follow Google recommended [Guide to app architecture](ht
 - Lifecycles
 - Coroutines
 - Flow
-- Retrofit-Okhttp with Coroutines
+- Retrofit with Coroutines
 - Hilt For DI
 - Coil for show image
 - Gradle Kotlin DSL(buildSrc) for dependency management
